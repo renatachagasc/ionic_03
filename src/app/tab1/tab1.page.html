@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center"> ArtGeek </ion-title>
+
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-infinite-scroll>
+        <ion-grid>
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="11" size-md="6" size-lg="4" size-xl="2" *ngFor="let produto of onObterProdutos();let i=index">
+                    <ion-card>
+                        <ion-chip class="tag" color="primary" *ngIf="produto.promocao === true" style="background: #3880ff;">
+                            <ion-label color="light">Promoção</ion-label>
+                        </ion-chip>
+                        <img [src]="produto.imagem" class="center" />
+                        <ion-card-header>
+                            <ion-card-subtitle>{{ produto.nome }}</ion-card-subtitle>
+                            <ion-card-title>{{ produto.preco | currency: 'BRL' }}</ion-card-title>
+                        </ion-card-header>
+
+                        <ion-card-content class="descricao">
+                            {{ produto.descricao }}
+                        </ion-card-content>
+
+                        <ion-row class="ion-justify-content-center ion-margin-bottom">
+                            <ion-button (click)="comprar(produto)">
+                                Comprar
+                            </ion-button>
+                        </ion-row>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-infinite-scroll>
+</ion-content>
