@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { LojaService } from "./../model/loja.service";
+import { Component } from "@angular/core";
+import { Produto } from "../model/produto";
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  constructor(private lojaService: LojaService) {}
 
-  constructor() {}
+  onObterProdutos(): Produto[] {
+    return this.lojaService.obterProdutos();
+  }
 
 }

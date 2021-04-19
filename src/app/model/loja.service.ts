@@ -58,6 +58,6 @@ export class LojaService {
     ];
   }
   obterProdutos(): Produto[] {
-    return this.produtos;
+    return [...this.produtos];
   }
 }

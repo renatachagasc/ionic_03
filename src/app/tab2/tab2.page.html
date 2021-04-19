@@ -14,14 +14,14 @@
     <ion-content fullscreen>
         <ion-list *ngFor="let item of onObterItens();let i= index">
             <ion-item>
-                <img [src]="item.produto.imagem" class="miniatura" />
+                <img [src]="item.produto.imagem" class="img_responviva" />
                 <ion-label>
                     <h2>{{ item.produto.nome }}</h2>
-                    <div class="botoes">
-                        <ion-button color="primary">
+                    <div class="botoes_right">
+                        <ion-button color="primary" (click)="this.carrinhoService.adicionarItem(item)">
                             <ion-icon name="add-circle"></ion-icon>
                         </ion-button>
-                        <ion-button color="danger">
+                        <ion-button color="danger" (click)="this.carrinhoService.removerItem(item)">
                             <ion-icon name="remove-circle-outline"></ion-icon>
                         </ion-button>
                     </div>
